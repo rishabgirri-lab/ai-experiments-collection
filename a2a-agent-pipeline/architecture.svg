@@ -1,0 +1,162 @@
+<svg width="900" height="980" viewBox="0 0 900 980" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, -apple-system, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="980" fill="#0d1117" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="44" text-anchor="middle" font-size="20" font-weight="600" fill="#e6edf3">A2A Grok Demo — Architecture</text>
+  <text x="450" y="68" text-anchor="middle" font-size="13" fill="#7d8590">Dynamic agent orchestration · Agent-to-Agent protocol · Grok / Groq LLM</text>
+
+  <!-- ── CLI CLIENT ── -->
+  <rect x="325" y="90" width="250" height="54" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="325" y="90" width="5" height="54" rx="2" fill="#58a6ff"/>
+  <text x="358" y="113" font-size="13" font-weight="600" fill="#e6edf3">CLI Client</text>
+  <text x="358" y="130" font-size="11" fill="#7d8590">client/cli.py</text>
+
+  <!-- Arrow: CLI → Orchestrator -->
+  <line x1="450" y1="144" x2="450" y2="182" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <rect x="456" y="153" width="118" height="16" rx="3" fill="#0d1117"/>
+  <text x="515" y="165" text-anchor="middle" font-size="10" fill="#58a6ff">POST /run  {"goal":"…"}</text>
+
+  <!-- ── ORCHESTRATOR ── -->
+  <rect x="200" y="182" width="500" height="80" rx="8" fill="#161b22" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="200" y="182" width="5" height="80" rx="2" fill="#7c3aed"/>
+  <text x="234" y="209" font-size="14" font-weight="600" fill="#e6edf3">Orchestrator</text>
+  <text x="234" y="228" font-size="11" fill="#7d8590">orchestrator/orchestrator.py · port 8000</text>
+  <text x="234" y="246" font-size="11" fill="#7d8590">① Discovers agents  ② Plans with Grok  ③ Chains agent output</text>
+
+  <!-- Arrow: Orchestrator → Grok (planning) -->
+  <line x1="700" y1="222" x2="780" y2="222" stroke="#2ea043" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <line x1="780" y1="222" x2="780" y2="290" stroke="#2ea043" stroke-width="1.5"/>
+  <line x1="780" y1="290" x2="700" y2="290" stroke="#2ea043" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <text x="820" y="218" font-size="10" fill="#2ea043" text-anchor="middle">plan?</text>
+  <text x="820" y="296" font-size="10" fill="#2ea043" text-anchor="middle">plan[]</text>
+
+  <!-- Grok planning box -->
+  <rect x="700" y="196" width="175" height="110" rx="8" fill="#161b22" stroke="#2ea043" stroke-width="1"/>
+  <rect x="700" y="196" width="5" height="110" rx="2" fill="#2ea043"/>
+  <text x="734" y="220" font-size="12" font-weight="600" fill="#e6edf3">Grok / Groq LLM</text>
+  <text x="734" y="238" font-size="10" fill="#7d8590">Planning call</text>
+  <text x="734" y="255" font-size="10" fill="#7d8590">response_format:</text>
+  <text x="734" y="270" font-size="10" fill="#7d8590">  json_object</text>
+  <text x="734" y="288" font-size="10" fill="#2ea043">→ returns JSON plan</text>
+
+  <!-- Discovery arrows down -->
+  <line x1="310" y1="262" x2="175" y2="330" stroke="#484f58" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr-gray)"/>
+  <line x1="450" y1="262" x2="450" y2="330" stroke="#484f58" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr-gray)"/>
+  <line x1="590" y1="262" x2="625" y2="330" stroke="#484f58" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arr-gray)"/>
+  <text x="250" y="296" font-size="10" fill="#484f58" text-anchor="middle">GET /.well-known/agent.json</text>
+
+  <!-- ── THREE AGENTS ── -->
+  <!-- Researcher -->
+  <rect x="50" y="330" width="230" height="88" rx="8" fill="#161b22" stroke="#1f6feb" stroke-width="1"/>
+  <rect x="50" y="330" width="5" height="88" rx="2" fill="#1f6feb"/>
+  <text x="84" y="354" font-size="13" font-weight="600" fill="#e6edf3">Researcher Agent</text>
+  <text x="84" y="372" font-size="10" fill="#7d8590">agents/researcher.py · :8001</text>
+  <text x="84" y="389" font-size="10" fill="#7d8590">skill: research_topic</text>
+  <text x="84" y="406" font-size="10" fill="#7d8590">tags: research, facts, summarize</text>
+
+  <!-- Writer -->
+  <rect x="335" y="330" width="230" height="88" rx="8" fill="#161b22" stroke="#1f6feb" stroke-width="1"/>
+  <rect x="335" y="330" width="5" height="88" rx="2" fill="#1f6feb"/>
+  <text x="369" y="354" font-size="13" font-weight="600" fill="#e6edf3">Writer Agent</text>
+  <text x="369" y="372" font-size="10" fill="#7d8590">agents/writer.py · :8002</text>
+  <text x="369" y="389" font-size="10" fill="#7d8590">skill: write_article</text>
+  <text x="369" y="406" font-size="10" fill="#7d8590">tags: writing, article, prose</text>
+
+  <!-- Critic -->
+  <rect x="620" y="330" width="230" height="88" rx="8" fill="#161b22" stroke="#1f6feb" stroke-width="1"/>
+  <rect x="620" y="330" width="5" height="88" rx="2" fill="#1f6feb"/>
+  <text x="654" y="354" font-size="13" font-weight="600" fill="#e6edf3">Critic Agent</text>
+  <text x="654" y="372" font-size="10" fill="#7d8590">agents/critic.py · :8003</text>
+  <text x="654" y="389" font-size="10" fill="#7d8590">skill: critique_article</text>
+  <text x="654" y="406" font-size="10" fill="#7d8590">tags: review, critique, feedback</text>
+
+  <!-- Arrows agents → their Grok -->
+  <line x1="165" y1="418" x2="165" y2="460" stroke="#2ea043" stroke-width="1.2" marker-end="url(#arr-green)"/>
+  <line x1="450" y1="418" x2="450" y2="460" stroke="#2ea043" stroke-width="1.2" marker-end="url(#arr-green)"/>
+  <line x1="735" y1="418" x2="735" y2="460" stroke="#2ea043" stroke-width="1.2" marker-end="url(#arr-green)"/>
+
+  <!-- Grok boxes under each agent -->
+  <rect x="65" y="460" width="200" height="56" rx="6" fill="#161b22" stroke="#2ea043" stroke-width="1"/>
+  <text x="165" y="484" text-anchor="middle" font-size="12" font-weight="600" fill="#e6edf3">Grok / Groq LLM</text>
+  <text x="165" y="502" text-anchor="middle" font-size="10" fill="#7d8590">researcher system prompt</text>
+
+  <rect x="350" y="460" width="200" height="56" rx="6" fill="#161b22" stroke="#2ea043" stroke-width="1"/>
+  <text x="450" y="484" text-anchor="middle" font-size="12" font-weight="600" fill="#e6edf3">Grok / Groq LLM</text>
+  <text x="450" y="502" text-anchor="middle" font-size="10" fill="#7d8590">writer system prompt</text>
+
+  <rect x="635" y="460" width="200" height="56" rx="6" fill="#161b22" stroke="#2ea043" stroke-width="1"/>
+  <text x="735" y="484" text-anchor="middle" font-size="12" font-weight="600" fill="#e6edf3">Grok / Groq LLM</text>
+  <text x="735" y="502" text-anchor="middle" font-size="10" fill="#7d8590">critic system prompt</text>
+
+  <!-- ── DIVIDER: A2A PROTOCOL ── -->
+  <line x1="40" y1="548" x2="860" y2="548" stroke="#21262d" stroke-width="1.5"/>
+  <rect x="310" y="538" width="280" height="20" rx="4" fill="#0d1117"/>
+  <text x="450" y="552" text-anchor="middle" font-size="11" fill="#484f58">A2A Protocol Layer — common/a2a_protocol.py</text>
+
+  <!-- ── PROTOCOL DETAIL ── -->
+  <!-- Endpoint 1 -->
+  <rect x="40" y="572" width="390" height="130" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="40" y="572" width="390" height="28" rx="8" fill="#1c2128"/>
+  <rect x="40" y="588" width="390" height="12" rx="0" fill="#1c2128"/>
+  <text x="235" y="591" text-anchor="middle" font-size="12" font-weight="600" fill="#58a6ff">GET /.well-known/agent.json</text>
+  <text x="56" y="618" font-size="11" fill="#7d8590">Returns AgentCard — used for discovery at startup</text>
+  <text x="56" y="638" font-size="10" fill="#484f58">{ "name": "researcher",</text>
+  <text x="56" y="654" font-size="10" fill="#484f58">  "skills": [{ "id": "research_topic",</text>
+  <text x="56" y="670" font-size="10" fill="#484f58">    "tags": ["research","facts"] }],</text>
+  <text x="56" y="686" font-size="10" fill="#484f58">  "url": "http://localhost:8001" }</text>
+
+  <!-- Endpoint 2 -->
+  <rect x="470" y="572" width="390" height="130" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="470" y="572" width="390" height="28" rx="8" fill="#1c2128"/>
+  <rect x="470" y="588" width="390" height="12" rx="0" fill="#1c2128"/>
+  <text x="665" y="591" text-anchor="middle" font-size="12" font-weight="600" fill="#a371f7">POST /  method: message/send</text>
+  <text x="486" y="618" font-size="11" fill="#7d8590">JSON-RPC call — invokes the agent handler</text>
+  <text x="486" y="638" font-size="10" fill="#484f58">params.message.parts[].text  → handler(text)</text>
+  <text x="486" y="658" font-size="10" fill="#484f58">result.parts[].text  ← agent response</text>
+  <text x="486" y="678" font-size="10" fill="#2ea043">orchestrator.call_agent(url, text) wraps this</text>
+
+  <!-- ── OUTPUT CHAINING ── -->
+  <rect x="40" y="726" width="820" height="100" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <rect x="40" y="726" width="820" height="28" rx="8" fill="#1c2128"/>
+  <rect x="40" y="742" width="820" height="12" rx="0" fill="#1c2128"/>
+  <text x="450" y="745" text-anchor="middle" font-size="12" font-weight="600" fill="#e6edf3">Output chaining — how agent results are piped forward</text>
+  <text x="60" y="772" font-size="11" fill="#7d8590">Grok's plan contains the literal token  &lt;prev_output&gt;  in later steps:</text>
+  <text x="60" y="792" font-size="10.5" fill="#484f58">{"agent":"writer", "input":"Write an article based on:\n\n&lt;prev_output&gt;"}</text>
+  <text x="60" y="810" font-size="11" fill="#7d8590">Before calling each agent the orchestrator does:   resolved = template.replace("&lt;prev_output&gt;", prev_text)</text>
+
+  <!-- ── ENV CONFIG ── -->
+  <rect x="40" y="850" width="820" height="54" rx="8" fill="#161b22" stroke="#d29922" stroke-width="1"/>
+  <rect x="40" y="850" width="5" height="54" rx="2" fill="#d29922"/>
+  <text x="74" y="872" font-size="12" font-weight="600" fill="#e6edf3">.env  (shared by all four processes)</text>
+  <text x="74" y="892" font-size="11" fill="#7d8590">XAI_API_KEY=gsk_…   ·   LLM_BASE_URL=https://api.groq.com/openai/v1   ·   GROK_MODEL=llama-3.3-70b-versatile</text>
+
+  <!-- ── LEGEND ── -->
+  <rect x="40" y="924" width="820" height="44" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <rect x="56" y="940" width="12" height="12" rx="2" fill="#7c3aed"/>
+  <text x="74" y="951" font-size="11" fill="#7d8590">Orchestrator</text>
+  <rect x="176" y="940" width="12" height="12" rx="2" fill="#1f6feb"/>
+  <text x="194" y="951" font-size="11" fill="#7d8590">Agents</text>
+  <rect x="270" y="940" width="12" height="12" rx="2" fill="#2ea043"/>
+  <text x="288" y="951" font-size="11" fill="#7d8590">Grok / Groq LLM</text>
+  <rect x="410" y="940" width="12" height="12" rx="2" fill="#58a6ff"/>
+  <text x="428" y="951" font-size="11" fill="#7d8590">HTTP / JSON-RPC</text>
+  <rect x="560" y="940" width="12" height="12" rx="2" fill="#d29922"/>
+  <text x="578" y="951" font-size="11" fill="#7d8590">Config (.env)</text>
+  <line x1="660" y1="946" x2="690" y2="946" stroke="#484f58" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="696" y="951" font-size="11" fill="#7d8590">Agent discovery</text>
+
+  <!-- ── ARROW MARKERS ── -->
+  <defs>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#2ea043" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#484f58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>
