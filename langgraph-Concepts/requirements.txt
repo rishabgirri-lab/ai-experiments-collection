@@ -1,0 +1,15 @@
+# Core graph runtime (LangGraph v1.x stable line)
+langgraph>=1.2.0,<2.0.0
+
+# Groq chat model via LangChain (fast inference of open models like Llama)
+langchain-groq>=0.2.0
+langchain-core>=0.3.70
+
+# Checkpointers for persistence (SQLite for local durable state)
+langgraph-checkpoint-sqlite>=2.0.0
+
+# Tools / utilities used in the examples
+pydantic>=2.7
+python-dotenv>=1.0.1
+grandalf>=0.8           # enables graph.draw_ascii() topology printing
+duckduckgo-search>=6.1  # a free web-search tool for the ReAct example
