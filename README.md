@@ -20,6 +20,8 @@ A collection of proof-of-concept projects exploring different AI and software id
 
 \- \[`a2a-agent-pipeline/`] — Three specialised AI agents (Researcher → Writer → Critic) that discover each other via the A2A protocol, with Grok / Groq as the LLM backend. The orchestrator dynamically plans and chains agent output — each agent's response becomes the next agent's input — with no hard-coded execution order.
 
+\- \[`langgraph-Concepts/`] — This is a runnable LangGraph concept map with 12 self-contained examples that demonstrate core graph patterns, state handling, routing, tools, checkpointing, and recovery. It is wired to Groq Llama inference via langchain-groq, logs each node execution, and prints the graph in ASCII/Mermaid form.
+
 
 
 **## Layout**
