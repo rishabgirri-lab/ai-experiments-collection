@@ -22,6 +22,8 @@ A collection of proof-of-concept projects exploring different AI and software id
 
 \- \[`langgraph-Concepts/`] — This is a runnable LangGraph concept map with 12 self-contained examples that demonstrate core graph patterns, state handling, routing, tools, checkpointing, and recovery. It is wired to Groq Llama inference via langchain-groq, logs each node execution, and prints the graph in ASCII/Mermaid form.
 
+\- \[`CrewAI-Concepts/`] — Lightweight prototype demonstrating CrewAI concepts: modular LLM-based agents, task orchestration, and custom tool integration. Includes example agents, task runners, logging, and configurable LLM settings to quickly prototype multi-agent workflows.
+
 
 
 **## Layout**
