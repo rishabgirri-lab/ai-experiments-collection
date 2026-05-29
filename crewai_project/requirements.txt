@@ -1,0 +1,8 @@
+# Core framework. Pin a recent stable line; CrewAI bundles LiteLLM which
+# provides the OpenAI-compatible client used to talk to Grok.
+crewai>=0.80.0,<1.0.0
+crewai-tools>=0.14.0
+# Required for the OpenAI-compatible fallback used to talk to Grok.
+litellm>=1.40.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
