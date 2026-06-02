@@ -1,0 +1,12 @@
+# Microsoft Agent Framework — pinned to the version these examples were written
+# and verified against. Pinning matters: MAF is evolving fast and renames things
+# between minor versions (e.g. ChatAgent -> Agent, AgentThread -> AgentSession).
+agent-framework==1.7.0
+
+# Used by example 05 (structured output). agent-framework already depends on
+# pydantic, but we list it for clarity.
+pydantic>=2
+
+# OpenTelemetry SDK powers example 17 (observability / console tracing).
+# agent-framework pulls in the OTel API; the SDK + exporters live here.
+opentelemetry-sdk>=1.27
