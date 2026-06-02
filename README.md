@@ -24,6 +24,8 @@ A collection of proof-of-concept projects exploring different AI and software id
 
 \- \[`CrewAI-Concepts/`] — Lightweight prototype demonstrating CrewAI concepts: modular LLM-based agents, task orchestration, and custom tool integration. Includes example agents, task runners, logging, and configurable LLM settings to quickly prototype multi-agent workflows.
 
+\- \[`MicrosoftAgentFramework_Concepts/`] — This repo contains example Python scripts demonstrating Microsoft Agent Framework concepts like agents, streaming, function tools, conversation memory, middleware, orchestration, workflow patterns, and observability. It is organized as a lightweight collection of runnable samples under examples plus setup info in README.md and requirements.txt.
+
 
 
 **## Layout**
