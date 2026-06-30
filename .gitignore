@@ -31,7 +31,6 @@ htmlcov/
 
 # Secrets — NEVER commit these
 .env
-.env.example
 .env.local
 *.key
 secrets/
