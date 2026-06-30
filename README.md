@@ -26,6 +26,7 @@ A collection of proof-of-concept projects exploring different AI and software id
 
 \- \[`MicrosoftAgentFramework_Concepts/`] — This repo contains example Python scripts demonstrating Microsoft Agent Framework concepts like agents, streaming, function tools, conversation memory, middleware, orchestration, workflow patterns, and observability. It is organized as a lightweight collection of runnable samples under examples plus setup info in README.md and requirements.txt.
 
+\- \[`langraph-vs-crewai-vs-maf/`] — Three agent frameworks (CrewAI, LangGraph, MAF), one identical task, so the real differences in how they model agents and control flow stand out. Comes with a "when to use which" guide and runs out of the box in simulated mode — add a Groq or OpenAI key to run it live.
 
 
 **## Layout**
