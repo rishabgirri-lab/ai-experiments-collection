@@ -1,0 +1,16 @@
+# The repo runs with ZERO dependencies in simulated mode (no API key needed).
+# Install any subset below to run that framework for real.
+
+# --- to call a real model (used by all three) ---
+openai>=1.40
+
+# --- frameworks (install only what you want to try) ---
+crewai>=0.80          # CrewAI: role-based crews
+langgraph>=0.2        # LangGraph: stateful graphs
+agent-framework>=1.0  # Microsoft Agent Framework (MAF)
+
+# Notes:
+# * CrewAI requires Python >=3.10,<3.14.
+# * `pip install agent-framework` pulls all MAF sub-packages.
+# * The three frameworks are independent; you do NOT need all of them installed.
+#   Each pipeline file falls back to a simulation if its framework is missing.
